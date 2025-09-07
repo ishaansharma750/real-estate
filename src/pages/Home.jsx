@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchProperties } from '../services/api';
-import PropertyCard from '../components/PropertiesSection';
-import FilterBar from '../components/FilterBar';
+import { fetchProperties } from '../services/Api';
 import Hero from '../components/Hero';
 import WhatWeDo from '../components/WhatWeDo';
 import Featured from '../components/Featured';
 import Newsletter from '../components/NewsLetter';
 import '../components/Style.css';
 import PropertiesSection from '../components/PropertiesSection';
-// import PropertiesSection from '../components/PropertySection';
+
 export default function Home() {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
