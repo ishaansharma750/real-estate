@@ -21,7 +21,7 @@ function mapProperty(p) {
 	};
 }
 
-export async function fetchProperties() {
+export const fetchProperties = async () => {
 	const { data } = await axios.get(API_URL);
 	return Array.isArray(data) ? data.map(mapProperty) : [];
-}
+};
