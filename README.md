@@ -1,12 +1,58 @@
-# React + Vite
+# 🏡 Real Estate Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **ReactJS frontend assignment** for building a real estate web application based on a Figma design.  
+The app fetches **property listings from an API** and implements **user authentication using Firebase**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objective
+Build a **responsive real estate web application** that allows users to browse properties, filter listings, and securely log in/register using Firebase Authentication.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📌 Features
+- **Home Page**
+  - Hero section with banner.
+  - "What We Do" section (4 cards).
+  - Featured Properties (fetched from API).
+  - Properties available for sale and rent.
+  - Newsletter subscription section.
+  - Footer with quick links.
+
+- **Property Listings Page**
+  - Fetch and display property listings from API.
+  - Filter by property type (**Sale / Rent**).
+
+- **Authentication**
+  - **Signup** with name, email, password, confirm password.
+  - **Login** with email & password.
+  - Firebase Authentication integration.
+  - Session stored in **localStorage / Context API**.
+  - Restricted routes for authenticated users only.
+
+- **Responsive Design**
+  - Works across desktop, tablet, and mobile.
+  - Navbar adapts to mobile with hamburger menu.
+
+---
+
+## 🛠️ Tech Stack
+- **React.js** (Functional Components + Hooks)
+- **React Router** (for navigation)
+- **Firebase Authentication**
+- **TailwindCSS** (styling)
+- **Context API / localStorage** (state management)
+- **MockAPI** for property listings
+
+# 1️⃣ Clone the repo
+git clone https://github.com/ishaansharma750/real-estate.git
+cd real-estate
+
+# 2️⃣ Install dependencies
+npm install
+
+# 3️⃣ Start the development server
+npm run dev
+
+```bash
+https://68b826bcb715405043274639.mockapi.io/api/properties/PropertyListing
