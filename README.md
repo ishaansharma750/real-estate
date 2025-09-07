@@ -54,5 +54,23 @@ npm install
 # 3️⃣ Start the development server
 npm run dev
 
+
+
+<img width="1920" height="1080" alt="Screenshot (106)" src="https://github.com/user-attachments/assets/252a83c0-3d10-4f4f-be36-300abf34c52c" />
+
+<img width="1920" height="1080" alt="Screenshot (107)" src="https://github.com/user-attachments/assets/ec20cff0-413c-478f-a3ee-ed314fcff71f" />
+
+<img width="1920" height="1080" alt="Screenshot (108)" src="https://github.com/user-attachments/assets/3b1abb57-16b9-4c32-bbaa-c1d9adc4e500" />
+
+<img width="1920" height="1080" alt="Screenshot (109)" src="https://github.com/user-attachments/assets/261dc691-629b-4438-b7fb-a2718ca1b274" />
+
+<img width="1920" height="1080" alt="Screenshot (110)" src="https://github.com/user-attachments/assets/c00bc617-bb38-49ef-945f-49c71ad86984" />
+
+
+
+
+
+
+
 ```bash
 https://68b826bcb715405043274639.mockapi.io/api/properties/PropertyListing
