@@ -13,18 +13,19 @@ export default function Newsletter() {
 					<h2>Start Your Journey Today!</h2>
 					<p>Create a profile in seconds and find your ideal home.</p>
 				</div>
-				<form className='journey-form'>
-					<input type='text' placeholder='Enter Your Name' />
-					<select>
-						<option>Select User Type</option>
-						<option>Buyer</option>
-						<option>Renter</option>
-						<option>Agent</option>
-					</select>
-					<input type='text' placeholder='Enter Your Location' />
-					<button type='submit'>Continue</button>
-				</form>
 			</div>
+			<form className='journey-form'>
+				<input type='text' placeholder='Enter Your Name' />
+				<select>
+					<option>Select User Type</option>
+					<option>Buyer</option>
+					<option>Renter</option>
+					<option>Agent</option>
+				</select>
+				<input type='text' placeholder='Enter Your Location' />
+				<button type='submit'>Continue</button>
+			</form>
+
 			{/* Bottom area: Images left, text right */}
 			<div className='journey-bottom'>
 				<div className='journey-images'>
@@ -52,7 +53,7 @@ export default function Newsletter() {
 							<img src={map} className='icon' />
 							<div>
 								<h3>Prime Location</h3>
-								<p>Lorem ipsum dolor sit a	met consectetur. Venenatis sed ac aenean tempus. Lectus quis pretium varius iaculis sed.</p>
+								<p>Lorem ipsum dolor sit a met consectetur. Venenatis sed ac aenean tempus. Lectus quis pretium varius iaculis sed.</p>
 							</div>
 						</li>
 					</ul>

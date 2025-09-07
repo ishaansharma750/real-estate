@@ -4,7 +4,26 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import Home from './pages/Home'; // Ensure this exists and is imported
+import Home from './pages/Home';
+// import Buy from './pages/Buy';
+// import Sell from './pages/Sell';
+// Ensure this exists and is imported
+// import Listings from './pages/Listings';
+import { useAuth } from './state/AuthContext';
+
+function ShowFooterIfAuthenticated() {
+	const { user } = useAuth();
+
+	if (!user) return null;
+
+	return (
+		<>
+			<br />
+			<br />
+			<Footer />
+		</>
+	);
+}
 
 function App() {
 	return (
@@ -12,21 +31,45 @@ function App() {
 			<Navbar />
 			<main>
 				<Routes>
-					<Route path='/' element={<Home />} />
+					{/* Public routes */}
 					<Route path='/login' element={<Login />} />
 					<Route path='/signup' element={<SignUp />} />
+
+					{/* Protected routes */}
 					<Route
-						path='/protected'
+						path='/'
 						element={
 							<ProtectedRoute>
-								<div className='section py-16'>Protected content here</div>
+								<Home />
 							</ProtectedRoute>
 						}
 					/>
-					<Route path='/home' element={<Navigate to='/' replace />} />
+					{/* Uncomment and add your private pages */}
+					{/* <Route
+						path='/buy'
+						element={
+							<ProtectedRoute>
+								<Buy />
+							</ProtectedRoute>
+						}
+					/> */}
+					{/* <Route
+						path='/rent'
+						element={
+							<ProtectedRoute>
+								<Sell />
+							</ProtectedRoute>
+						}
+					/> */}
+					{/* Add similar private routes here */}
+
+					{/* Catch-all redirect */}
+					<Route path='*' element={<Navigate to='/' replace />} />
 				</Routes>
-			<Footer />
 			</main>
+
+			{/* Show Footer only if user is logged in */}
+			<ShowFooterIfAuthenticated />
 		</>
 	);
 }

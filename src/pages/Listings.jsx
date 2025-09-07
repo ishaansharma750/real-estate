@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { fetchProperties } from '../services/api';
-import PropertyCard from '../components/PropertyCard';
+import PropertyCard from '../components/PropertyCards';
 import FilterBar from '../components/FilterBar';
 
-export default function Listings() {
+export default function Listings({ initialFilter = 'all' }) {
 	const [items, setItems] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [filter, setFilter] = useState('all');
+	const [filter, setFilter] = useState(initialFilter);
 
 	useEffect(() => {
 		(async () => {
@@ -18,6 +18,10 @@ export default function Listings() {
 			}
 		})();
 	}, []);
+
+	useEffect(() => {
+		setFilter(initialFilter);
+	}, [initialFilter]);
 
 	const filtered = useMemo(() => items.filter((i) => (filter === 'all' ? true : i.propertyType === filter)), [items, filter]);
 

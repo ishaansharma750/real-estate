@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../services/firebase';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../components/Style.css'; // Custom styles reference
+import login from '../assets/login/login.png'; // Use your image path
+import toast from 'react-hot-toast';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -18,8 +21,10 @@ export default function Login() {
 		setLoading(true);
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
+			toast.success('Logged in successfully!');
 			navigate(from, { replace: true });
 		} catch (err) {
+			toast.error(err.message);
 			setError(err.message);
 		} finally {
 			setLoading(false);
@@ -27,29 +32,51 @@ export default function Login() {
 	};
 
 	return (
-		<section className='section py-16 max-w-md'>
-			<h1 className='text-2xl font-bold mb-6'>Login</h1>
-			<form onSubmit={onSubmit} className='card p-6 space-y-4'>
-				{error && <div className='text-red-600 text-sm'>{error}</div>}
-				<input className='w-full px-3 py-2 rounded-xl border' placeholder='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-				<input
-					className='w-full px-3 py-2 rounded-xl border'
-					placeholder='Password'
-					type='password'
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-				<button disabled={loading} className='w-full px-4 py-2 rounded-xl bg-indigo-600 text-white'>
-					{loading ? 'Signing in…' : 'Login'}
-				</button>
-				<p className='text-sm'>
-					No account?{' '}
-					<Link to='/signup' className='underline'>
-						Signup
-					</Link>
-				</p>
-			</form>
-		</section>
+		<div className='auth-root'>
+			{/* Main split layout */}
+			<div className='auth-container'>
+				{/* Left: Form */}
+				<div className='auth-form-wrap'>
+					<h1 className='auth-title'>Welcome back</h1>
+					<form className='auth-form' onSubmit={onSubmit}>
+						{error && <div className='auth-error'>{error}</div>}
+						<label>
+							Email Address
+							<div className='input-with-icon'>
+								<input type='email' placeholder='Enter Your Email Id' value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete='email' />
+								<span className='input-icon'>&#9993;</span>
+							</div>
+						</label>
+						<label>
+							Password
+							<div className='input-with-icon'>
+								<input
+									type='password'
+									placeholder='Enter Your Password'
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
+									required
+									autoComplete='current-password'
+								/>
+								<span className='input-icon'>&#128065;</span>
+							</div>
+						</label>
+						<button type='submit' className='auth-submit' disabled={loading}>
+							{loading ? 'Signing In…' : 'Sign In'}
+						</button>
+						<div className='auth-footer-links'>
+							Don't have an account?{' '}
+							<Link to='/signup' className='auth-link'>
+								Create one
+							</Link>
+						</div>
+					</form>
+				</div>
+				{/* Right: Image */}
+				<div className='auth-image-wrap'>
+					<img className='auth-image' src={login} alt='Modern House' />
+				</div>
+			</div>
+		</div>
 	);
 }
